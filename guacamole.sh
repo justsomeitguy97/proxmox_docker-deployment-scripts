@@ -1,38 +1,13 @@
-#!/bin/bash
-
-sleep 2
-
 echo "Updating system..."
-sleep 1
-sudo apt-get update -y
-
-sleep 2
-
+apt-get update -y
 echo "Upgrading system..."
-sleep 1
-sudo apt-get upgrade -y
-
-sleep 2
-
+apt-get upgrade -y
 echo "Installing Docker..."
-sleep 1
-sudo apt-get install docker.io -y
-
-sleep 2
-
+apt-get install docker -y
 cd ..
-
-sleep 2
-
-mkdir Docker
-
-sleep 2
-
-sudo docker run \
+mkdir docker/apache-guacamole/config
+docker run \
   -p 8080:8080 \
-  -v /path/to/config:/config \
+  -v docker/apache-guacamole/config:/config \
   jwetzell/guacamole
-
-sleep 1
-
 echo "Done, your Apache Guacamole instance is ready!"
