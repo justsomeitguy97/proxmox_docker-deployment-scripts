@@ -1,42 +1,38 @@
-wait 2sec
+#!/bin/bash
+
+sleep 2
 
 echo "Updating system..."
+sleep 1
+sudo apt-get update -y
 
-wait 1sec
-
-apt-get update -y
-
-wait 2sec
+sleep 2
 
 echo "Upgrading system..."
+sleep 1
+sudo apt-get upgrade -y
 
-wait 1sec
-
-apt-get upgrade -y
-
-wait 2sec
+sleep 2
 
 echo "Installing Docker..."
+sleep 1
+sudo apt-get install docker.io -y
 
-wait 1sec
-
-apt-get install docker -y
-
-wait 2sec
+sleep 2
 
 cd ..
 
-wait 2sec
+sleep 2
 
 mkdir Docker
 
-wait 2 sec
+sleep 2
 
-docker run \
+sudo docker run \
   -p 8080:8080 \
-  -v </path/to/config>:/config \
+  -v /path/to/config:/config \
   jwetzell/guacamole
 
-wait 1sec
+sleep 1
 
 echo "Done, your Apache Guacamole instance is ready!"
